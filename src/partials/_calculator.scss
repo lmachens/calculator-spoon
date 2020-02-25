@@ -1,0 +1,12 @@
+.calculator {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.calculator__output {
+  flex-basis: 100%;
+}
+
+.calculator__input {
+  flex-basis: calc(100% / 3);
+}
