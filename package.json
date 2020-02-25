@@ -1,0 +1,26 @@
+{
+  "name": "calculator-spoon",
+  "version": "1.0.0",
+  "description": "Calculator Example Project",
+  "main": "index.js",
+  "scripts": {
+    "dev": "sass --watch src/styles.scss dist/styles.css",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lmachens/calculator-spoon.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lmachens/calculator-spoon/issues"
+  },
+  "homepage": "https://github.com/lmachens/calculator-spoon#readme",
+  "devDependencies": {
+    "htmlhint": "^0.11.0",
+    "prettier": "^1.19.1",
+    "sass": "^1.26.0"
+  }
+}
