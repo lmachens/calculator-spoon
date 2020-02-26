@@ -36,3 +36,31 @@ function clear() {
 }
 
 calculatorClear.addEventListener("click", clear);
+
+// function handleInputClick() {
+//   console.log("Handle input click");
+// }
+// calculatorInputs[0].addEventListener("click", handleInputClick);
+// calculatorInputs[1].addEventListener("click", handleInputClick);
+
+function addInputEventListener(calculatorInput) {
+  function handleCalculatorInputClick() {
+    calculatorOutput.value = calculatorInput.innerText;
+  }
+
+  calculatorInput.addEventListener("click", handleCalculatorInputClick);
+}
+
+calculatorInputs.forEach(addInputEventListener);
+
+// calculatorInputs.forEach(function addInputEventListener(calculatorInput) {
+//   console.log("addInputEventListener", calculatorInput.innerText);
+// });
+
+// calculatorInputs.forEach(function(calculatorInput) {
+//   console.log("addInputEventListener", calculatorInput.innerText);
+// });
+
+// calculatorInputs.forEach(calculatorInput => {
+//   console.log("addInputEventListener", calculatorInput.innerText);
+// });
