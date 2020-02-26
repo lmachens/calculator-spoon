@@ -1,9 +1,20 @@
-const calculatorOutput = document.querySelector(".calculator__output");
-calculatorOutput.value = "42";
+"use strict";
 
-const calculatorInputs = document.querySelectorAll(".calculator__input");
-calculatorInputs.forEach(function(calculatorInput) {
-  calculatorInput.addEventListener("click", function() {
-    calculatorOutput.value = calculatorInput.innerHTML;
-  });
-});
+const calculatorOutput = document.querySelector(".calculator__output");
+calculatorOutput.value = divide(54, 33);
+
+function add(numberOne, numberTwo) {
+  return numberOne + numberTwo;
+}
+
+function subtract(numberOne, numberTwo) {
+  return numberOne - numberTwo;
+}
+
+function divide(numberOne, numberTwo) {
+  return numberOne / numberTwo;
+}
+
+function multiply(numberOne, numberTwo) {
+  return numberOne * numberTwo;
+}
