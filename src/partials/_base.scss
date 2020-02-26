@@ -3,3 +3,13 @@
 *::before {
   box-sizing: border-box;
 }
+
+.btn {
+  background: azure;
+  cursor: pointer;
+  outline: none;
+}
+
+.btn:hover {
+  background: cadetblue;
+}
