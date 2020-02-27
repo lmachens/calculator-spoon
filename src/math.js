@@ -13,10 +13,3 @@ export function divide(numberOne, numberTwo) {
 export function multiply(numberOne, numberTwo) {
   return numberOne * numberTwo;
 }
-
-// export default {
-//   add,
-//   subtract,
-//   divide,
-//   multiply
-// };
