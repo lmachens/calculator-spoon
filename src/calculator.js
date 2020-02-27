@@ -8,19 +8,28 @@ const calculatorClear = document.querySelector(".calculator__clear");
 const calculatorOperators = document.querySelectorAll(".calculator__operator");
 const logs = document.querySelector(".logs");
 
-let numberOne = 0;
-let numberTwo = 0;
-let operator = "";
+let firstNumber = null;
+let operator = null;
+let isWaitingForNewNumber = true;
 
-function handleResultClick() {
-  numberTwo = Number(calculatorOutput.value);
-  const result = calculate(numberOne, numberTwo, operator);
-  const text = `${numberOne} ${operator} ${numberTwo} = ${result}`;
+function calculateResult() {
+  if (!operator) {
+    return;
+  }
+  const secondNumber = Number(calculatorOutput.value);
+  const result = calculate(firstNumber, secondNumber, operator);
+
+  const text = `${firstNumber} ${operator} ${secondNumber} = ${result}`;
   appendParagraph(text, logs);
+
   calculatorOutput.value = result;
+
+  firstNumber = result;
+  isWaitingForNewNumber = true;
+  operator = null;
 }
 
-calculatorResult.addEventListener("click", handleResultClick);
+calculatorResult.addEventListener("click", calculateResult);
 
 function clear() {
   calculatorOutput.value = "";
@@ -28,14 +37,13 @@ function clear() {
 
 calculatorClear.addEventListener("click", clear);
 
-// function handleInputClick() {
-//   console.log("Handle input click");
-// }
-// calculatorInputs[0].addEventListener("click", handleInputClick);
-// calculatorInputs[1].addEventListener("click", handleInputClick);
-
 function addInputEventListener(calculatorInput) {
   function handleCalculatorInputClick() {
+    if (isWaitingForNewNumber) {
+      firstNumber = Number(calculatorOutput.value);
+      calculatorOutput.value = "";
+      isWaitingForNewNumber = false;
+    }
     calculatorOutput.value += calculatorInput.innerText;
   }
 
@@ -46,10 +54,11 @@ calculatorInputs.forEach(addInputEventListener);
 
 function addOperatorEventListener(calculatorOperator) {
   function handleCalculatorOperatorClick() {
-    numberOne = Number(calculatorOutput.value);
+    if (!isWaitingForNewNumber && operator) {
+      calculateResult();
+    }
     operator = calculatorOperator.innerText;
-
-    clear();
+    isWaitingForNewNumber = true;
   }
   calculatorOperator.addEventListener("click", handleCalculatorOperatorClick);
 }
