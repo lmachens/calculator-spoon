@@ -6,7 +6,7 @@ const calculatorInputs = document.querySelectorAll(".calculator__input");
 const calculatorResult = document.querySelector(".calculator__result");
 const calculatorClear = document.querySelector(".calculator__clear");
 const calculatorOperators = document.querySelectorAll(".calculator__operator");
-const calculatorLogs = document.querySelector(".calculator_logs");
+const logs = document.querySelector(".logs");
 
 let numberOne = 0;
 let numberTwo = 0;
@@ -15,8 +15,8 @@ let operator = "";
 function handleResultClick() {
   numberTwo = Number(calculatorOutput.value);
   const result = calculate(numberOne, numberTwo, operator);
-  const log = `${numberOne} ${operator} ${numberTwo} = ${result}`;
-  appendParagraph(log, calculatorLogs);
+  const text = `${numberOne} ${operator} ${numberTwo} = ${result}`;
+  appendParagraph(text, logs);
   calculatorOutput.value = result;
 }
 
