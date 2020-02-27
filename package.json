@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/lmachens/calculator-spoon#readme",
   "devDependencies": {
+    "eslint": "^6.8.0",
     "htmlhint": "^0.11.0",
     "prettier": "^1.19.1",
     "sass": "^1.26.0"
